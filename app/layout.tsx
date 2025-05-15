@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "./layout.module.scss"; // Import SCSS Module
+import styles from "./layout.module.scss";
 import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import Link from "next/link";
+import "./reset.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +38,6 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={styles.root}>
-          {" "}
-          {/* Użyj stylów z SCSS Module */}
           <header className={styles.header}>
             <div className={styles.container}>
               <div className={styles.logo}>Fabryka Dobrej Formy</div>
