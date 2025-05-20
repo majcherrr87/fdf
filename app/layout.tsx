@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
-import { Navbar } from "./components/navbar";
-import { Footer } from "./components/footer";
+import { Container, Typography } from "@mui/material";
 import styles from "./layout.module.scss";
-import "./reset.css";
+import ThemeRegistry from "./lib/ThemeRegistry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,14 +36,20 @@ export default function RootLayout({
         <meta name="theme-color" content="#8bff1f" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className={styles.root}>
-          <header className={styles.header}>
-            <Navbar />
-          </header>
-          <main className={styles.main}>{children}</main>
-          <Footer />
-          <ServiceWorkerRegistration />
-        </div>
+        <ThemeRegistry>
+          <div className={styles.root}>
+            <header className={styles.header}></header>
+            <main>
+              <Container maxWidth="lg">{children}</Container>
+            </main>
+            <footer>
+              <Typography textAlign={"center"} bgcolor={"red"} p={2}>
+                Footer
+              </Typography>
+            </footer>
+            {/* <Footer /> */}
+          </div>
+        </ThemeRegistry>
       </body>
     </html>
   );
