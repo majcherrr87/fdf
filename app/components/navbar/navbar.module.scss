@@ -1,0 +1,57 @@
+.navContainer {
+  background-color: #f0f0f0; /* Kolor tła typowy dla MUI AppBar */
+  position: static;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px; /* Standardowy padding MUI bez dodatkowych 48px */
+  box-sizing: border-box;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 0; /* Upewnienie się, że nie ma dodatkowego marginesu */
+}
+
+.navButton {
+  color: white !important;
+  text-transform: none;
+}
+
+.link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
