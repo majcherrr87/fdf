@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Container, Typography } from "@mui/material";
-import styles from "./layout.module.scss";
 import ThemeRegistry from "./lib/ThemeRegistry";
+import { Header } from "./components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,16 +17,42 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fabryka Dobrej Formy",
   description: "Fabryka Dobrej Formy - Twoje miejsce na zdrowie i urodę",
-  manifest: "/manifest.json",
+  keywords: [
+    "Trener",
+    "Fitness",
+    "Zdrowie",
+    "Uroda",
+    "Fabryka Dobrej Formy",
+    "Trening",
+    "Dieta",
+    "Sport",
+    "EMS",
+  ],
+  openGraph: {
+    title: "Fabryka Dobrej Formy",
+    description: "Zdrowie i uroda - Fabryka Dobrej Formy",
+    url: "https://fabrykadobrejformy.pl",
+    siteName: "FabrykaDobrejFormy",
+    type: "website",
+    locale: "pl_PL",
+    images: [
+      {
+        url: "/img/fdfLogo.png",
+        width: 258,
+        height: 78,
+        alt: "Fabryka Dobrej Formy - logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pl">
+    <html lang="pl" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <meta
           name="apple-mobile-web-app-title"
@@ -35,20 +61,17 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#8bff1f" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         <ThemeRegistry>
-          <div className={styles.root}>
-            <header className={styles.header}></header>
-            <main>
-              <Container maxWidth="lg">{children}</Container>
-            </main>
-            <footer>
-              <Typography textAlign={"center"} bgcolor={"red"} p={2}>
-                Footer
-              </Typography>
-            </footer>
-            {/* <Footer /> */}
-          </div>
+          <Header />
+          <main>
+            <Container maxWidth="lg">{children}</Container>
+          </main>
+          <footer>
+            <Typography textAlign={"center"} bgcolor={"red"} p={2}>
+              Footer
+            </Typography>
+          </footer>
         </ThemeRegistry>
       </body>
     </html>
