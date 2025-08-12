@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import ThemeRegistry from "./lib/ThemeRegistry";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,11 +68,7 @@ export default function RootLayout({
           <main>
             <Container maxWidth="lg">{children}</Container>
           </main>
-          <footer>
-            <Typography textAlign={"center"} bgcolor={"red"} p={2}>
-              Footer
-            </Typography>
-          </footer>
+          <Footer />
         </ThemeRegistry>
       </body>
     </html>
