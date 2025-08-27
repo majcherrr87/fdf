@@ -1,5 +1,12 @@
+import { Box } from "@mui/material";
+import Nav from "../Nav/Nav";
 import styles from "./header.module.scss";
 
 export const Header = () => {
-  return <div className={styles.header}>Header</div>;
+  return (
+    <Box className={styles.header} sx={{ pt: "64px" }}>
+      <Nav />
+      Header
+    </Box>
+  );
 };
