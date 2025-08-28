@@ -128,7 +128,7 @@ function Nav() {
           </Container>
         </AppBar>
       </ElevationScroll>
-      <ScrollTop {...props}>
+      <ScrollTop>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
